@@ -5,9 +5,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
-
 /**
- * Implementation of the diagnostic service
+ * Implementation of the diagnostic service to determine the diagnostic based on the code received
  */
 @Service
 public class DiagnosticServiceImpl implements DiagnosticService {
@@ -21,10 +20,11 @@ public class DiagnosticServiceImpl implements DiagnosticService {
     public static final String DIAGNOSTIC_NONE = "No pathology detected";
 
     /**
-     * Implementation of the diagnostic service
+     * Determines the diagnostic based on the code received
      *
      * @param code The code to determine the diagnostic
      * @return The diagnostic determined
+     * @throws IllegalArgumentException If the code is not positive
      */
     @Override
     public String determinateDiagnostic(int code) {
