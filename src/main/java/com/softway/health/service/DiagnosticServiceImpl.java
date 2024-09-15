@@ -25,27 +25,21 @@ public class DiagnosticServiceImpl implements DiagnosticService {
     public String determinateDiagnostic(int code) {
         logger.info("Determining diagnostic for code: {}", code);
 
+        // Check if the code is a multiple of 3 and 5
         boolean isMultipleOfThree = isMultipleOf(code, 3);
         boolean isMultipleOfFive = isMultipleOf(code, 5);
 
+        // Check if the code is valid
         if (code <= 0) {
             logger.error("Invalid code: {}", code);
             throw new IllegalArgumentException("Code must be positive.");
         }
 
-        if (isMultipleOfThree && isMultipleOfFive) {
-            logger.info("Diagnostic: {}", DIAGNOSTIC_BOTH);
-            return DIAGNOSTIC_BOTH;
-        } else if (isMultipleOfThree) {
-            logger.info("Diagnostic: {}", DIAGNOSTIC_CARDIOLOGY);
-            return DIAGNOSTIC_CARDIOLOGY;
-        } else if (isMultipleOfFive) {
-            logger.info("Diagnostic: {}", DIAGNOSTIC_TRAUMATOLOGY);
-            return DIAGNOSTIC_TRAUMATOLOGY;
-        } else {
-            logger.info("No pathology detected");
-            return DIAGNOSTIC_NONE;
-        }
+        // Determine the diagnostic
+        return isMultipleOfThree && isMultipleOfFive ?
+                DIAGNOSTIC_BOTH : isMultipleOfThree ?
+                DIAGNOSTIC_CARDIOLOGY : isMultipleOfFive ?
+                DIAGNOSTIC_TRAUMATOLOGY : DIAGNOSTIC_NONE;
     }
 
     /**
@@ -56,6 +50,7 @@ public class DiagnosticServiceImpl implements DiagnosticService {
      * @return True if the code is a multiple of the divisor, false otherwise
      */
     private boolean isMultipleOf(int code, int divisor) {
+        logger.info("Checking if {} is a multiple of {}", code, divisor);
         return code % divisor == 0;
     }
 }

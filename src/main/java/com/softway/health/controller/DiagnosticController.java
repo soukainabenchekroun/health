@@ -17,7 +17,8 @@ public class DiagnosticController {
     private DiagnosticService diagnosticService;
 
     @GetMapping("/diagnostic")
-    public String get(@RequestParam int code) {
+    public String getDiagnostic(@RequestParam int code) {
+        logger.info("Received code: {}", code);
         return diagnosticService.determinateDiagnostic(code);
     }
 }
