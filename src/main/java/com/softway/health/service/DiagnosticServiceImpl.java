@@ -33,13 +33,11 @@ public class DiagnosticServiceImpl implements DiagnosticService {
         // Check if the code is a multiple of 3 and 5
         boolean isMultipleOfThree = isMultipleOf(code, 3);
         boolean isMultipleOfFive = isMultipleOf(code, 5);
-
         // Check if the code is valid
         if (code <= 0) {
             logger.error("Invalid code: {}", code);
             throw new IllegalArgumentException("Code must be positive.");
         }
-
         // Determine the diagnostic
         return isMultipleOfThree && isMultipleOfFive ?
                 DIAGNOSTIC_BOTH : isMultipleOfThree ?
