@@ -29,12 +29,6 @@ If you are using Maven, you can run the tests through the following command:
 mvn clean test
 ```
 
-This command will execute all tests in the project and provide a summary of the tests executed, including any failures.
-
-### Running Tests in an IDE
-
-To run the tests within an IDE, you can generally right-click on the project or test classes and select "Run Tests". This option varies depending on the IDE.
-
 ## Manual Testing
 
 For manual testing, especially for the REST API endpoints, follow the steps below:
