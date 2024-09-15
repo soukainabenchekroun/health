@@ -5,7 +5,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
-import static com.softway.health.util.DiagnosticConstants.*;
 
 /**
  * Implementation of the diagnostic service
@@ -14,6 +13,12 @@ import static com.softway.health.util.DiagnosticConstants.*;
 public class DiagnosticServiceImpl implements DiagnosticService {
 
     private static final Logger logger = LoggerFactory.getLogger(DiagnosticServiceImpl.class);
+
+    // Constants
+    public static final String DIAGNOSTIC_CARDIOLOGY = "Cardiologie";
+    public static final String DIAGNOSTIC_TRAUMATOLOGY = "Traumatologie";
+    public static final String DIAGNOSTIC_BOTH = DIAGNOSTIC_CARDIOLOGY + ", " + DIAGNOSTIC_TRAUMATOLOGY;
+    public static final String DIAGNOSTIC_NONE = "No pathology detected";
 
     /**
      * Implementation of the diagnostic service
