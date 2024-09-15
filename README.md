@@ -46,7 +46,7 @@ For manual testing, especially for the REST API endpoints, follow the steps belo
             - Parameter: `code` (int)
             - Expected response: JSON object describing the diagnostic result.
             - Examples:
-              ```http
+              ```
               GET /diagnostic?code=33
               GET /diagnostic?code=55
               GET /diagnostic?code=15
